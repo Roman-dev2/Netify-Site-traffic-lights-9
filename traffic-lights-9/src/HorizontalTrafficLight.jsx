@@ -11,7 +11,7 @@ const HorizontalTrafficLight = ({ data, onLightClick, onReset }) => {
   );
 };
 
-
+// Визначення PropTypes
 HorizontalTrafficLight.propTypes = {
   data: PropTypes.object.isRequired,
   onLightClick: PropTypes.func.isRequired,

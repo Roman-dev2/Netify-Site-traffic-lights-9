@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import TrafficLights from './TrafficLights';
 import ClickDisplay from './ClickDisplay';

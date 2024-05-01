@@ -1,4 +1,3 @@
-
 import PropTypes from 'prop-types';
 import './ClickDisplay.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';

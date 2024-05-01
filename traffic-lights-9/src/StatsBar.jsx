@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import './StatsBar.css';
 
@@ -9,7 +10,7 @@ const StatsBar = ({ toggleOrientation }) => {
   );
 };
 
-
+// Додавання PropTypes
 StatsBar.propTypes = {
   toggleOrientation: PropTypes.func.isRequired
 };
