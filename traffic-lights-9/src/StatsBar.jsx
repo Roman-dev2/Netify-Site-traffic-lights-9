@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import './StatsBar.css';
 
 const StatsBar = ({ toggleOrientation }) => {
@@ -11,7 +11,7 @@ const StatsBar = ({ toggleOrientation }) => {
 
 
 StatsBar.propTypes = {
-  toggleOrientation: PropTypes.func.isRequired, 
+  toggleOrientation: PropTypes.func.isRequired
 };
 
 export default StatsBar;

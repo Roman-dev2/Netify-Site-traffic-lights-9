@@ -1,30 +1,32 @@
-import { useContext } from 'react';
-import { TrafficLightsContext } from './TrafficLightsProvider';
+import PropTypes from 'prop-types';
 import Light from './Light';
 import './TrafficLights.css';
 
-const TrafficLights = () => {
-  const { lights, handleLightClick, isVertical } = useContext(TrafficLightsContext);
-  if (!lights) return <div className="loading">Loading...</div>;
-
-
-  const orientationClass = isVertical ? "vertical" : "horizontal";
-
+const TrafficLights = ({ orientation, data, onLightClick }) => {
   return (
-    <div className={`trafficLightContainer ${orientationClass}`}>
-      <div className={`trafficLight ${orientationClass}`}>
+    <div className="trafficLightContainer">
+      <div className={`trafficLight ${orientation === "vertical" ? "vertical" : "horizontal"}`}>
         <div className="lightsContainer">
-          {lights.map((light) => (
+          {data.map((light) => (
             <Light
               key={light.id}
               tlColor={light.color}
-              onClick={() => handleLightClick(light.id)}
+              onClick={() => onLightClick(light.id)}         
             />
           ))}
         </div>
       </div>
     </div>
   );
+};
+
+TrafficLights.propTypes = {
+  orientation: PropTypes.oneOf(['vertical', 'horizontal']).isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired
+  })).isRequired,
+  onLightClick: PropTypes.func.isRequired
 };
 
 export default TrafficLights;

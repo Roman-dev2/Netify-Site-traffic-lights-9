@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import './Light.css';
 
-function Light({ tlColor = 'red', onClick, settings = { duration: 250, brightness: 0.5, blinks: 1 } }) {
+function Light({ tlColor = 'red', onClick, settings = { duration: 300, brightness: 0.5, blinks: 3 } }) {
     const [isBlinking, setIsBlinking] = useState(false);
     const [blinkKey, setBlinkKey] = useState(0);  
   

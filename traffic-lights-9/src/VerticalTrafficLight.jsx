@@ -1,23 +1,21 @@
-import { useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import TrafficLights from './TrafficLights';
 import ClickDisplay from './ClickDisplay';
-import { TrafficLightsContext } from './TrafficLightsProvider';
 
-const VerticalTrafficLight = () => {
-  const { lights, handleLightClick, resetClicks, isVertical, toggleOrientation } = useContext(TrafficLightsContext);
-
-  useEffect(() => {
-    if (!isVertical) {
-      toggleOrientation();
-    }
-  }, [isVertical, toggleOrientation]);
-
+const VerticalTrafficLight = ({ data, onLightClick, onReset }) => {
   return (
     <>
-      <ClickDisplay data={lights} onReset={resetClicks} />
-      <TrafficLights orientation="vertical" data={lights} onLightClick={handleLightClick} />
+        {/*Для виклику ErrorPage <h1 style={"margin"}></h1> */}
+      <ClickDisplay data={data} onReset={onReset} />
+      <TrafficLights orientation="vertical" data={data} onLightClick={onLightClick} />
     </>
   );
+};
+
+VerticalTrafficLight.propTypes = {
+  data: PropTypes.object.isRequired,
+  onLightClick: PropTypes.func.isRequired,
+  onReset: PropTypes.func.isRequired
 };
 
 export default VerticalTrafficLight;
